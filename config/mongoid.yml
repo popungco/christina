@@ -1,0 +1,30 @@
+defaults: &defaults
+  allow_dynamic_fields: true
+  parameterize_keys: true
+  
+development:
+  <<: *defaults
+  allow_dynamic_fields: true
+  parameterize_keys: true
+  host: localhost
+  database: v001_development
+
+test:
+  host: localhost
+  database: v001_test
+
+# set these environment variables on your prod server
+production:
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
+
+
+  

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Subject:</b>
+  <%= @post.subject %>
+</p>
+<p>
+  <b>Published:</b>
+  <%= @post.published_on %>
+</p>
+<p>
+	<% @post.images.each do |image| %>
+		<%= image_tag(image.attach_url(:thumb).to_s) + tag("br") if image.attach_url %>
+		<%= image.content %><br/>
+	<% end %>
+</p>
+
+<%= render partial: 'comment', :post => @post %>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

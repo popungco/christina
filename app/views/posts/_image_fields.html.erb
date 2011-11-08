@@ -1,0 +1,10 @@
+
+	<div class="fieldsd">
+		<%= image_tag(f.object.attach_url(:thumb).to_s) + tag("br") if f.object.attach_url %>
+		<%= f.label :attach, "Image" %>
+		<%= f.file_field :attach %>
+		<%= f.hidden_field :attach_cache %>
+		<%= link_to_remove_fields "remove", f %>
+<br/>
+		<%= f.text_area :content, :rows => 10 %>
+	</div>
